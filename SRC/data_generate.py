@@ -2,7 +2,7 @@ import random
 from datetime import date, timedelta
 
 # ================== CONFIG ==================
-NUM_ADMINS = 20          # ~tens
+NUM_ADMINS = 20          # tens
 NUM_MEMBERS = 2000       # thousands
 NUM_BOOKINFO = 4000      # thousands
 NUM_BOOKS = 4000         # thousands
@@ -11,7 +11,7 @@ RETURN_RATIO = 0.6       # 60% of borrowings have a return
 NUM_DONATIONS = 600      # hundreds
 
 OUTPUT_FILE = "generated_data.sql"
-DB_NAME = "group5_library"   # must match your ex2.sql
+DB_NAME = "group5_library"   
 
 FIRST_NAMES = [
     "Alice", "Bob", "Carol", "David", "Emma", "Frank", "Grace", "Hannah",
