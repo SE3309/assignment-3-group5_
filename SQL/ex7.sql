@@ -1,7 +1,7 @@
 
-------------------------------------------------------------
+
 -- View 1: View all books with their author information
-------------------------------------------------------------
+
 DROP VIEW IF EXISTS AuthorBooks;
 DROP VIEW IF EXISTS MemberBorrowHistory;
 
@@ -19,12 +19,11 @@ JOIN BookInfo AS bi
     ON b.ISBN = bi.ISBN;
 
 
-------------------------------------------------------------
--- Example query on View 1:
--- Show all books authored by a CERTAIN AUTHOR.
--- Replace 'Author Smith' with any actual author in your data.
-------------------------------------------------------------
-
+/*
+ Example query on View 1:
+ Show all books authored by a CERTAIN AUTHOR.
+ Replace 'Author Smith' with any actual author in your data.
+*/
 SELECT
     bookID,
     ISBN,
@@ -36,9 +35,7 @@ FROM AuthorBooks
 WHERE Author = 'Author Smith';
 
 
-------------------------------------------------------------
 -- View 2: View all books a certain Member has borrowed before
-------------------------------------------------------------
 
 CREATE VIEW MemberBorrowHistory AS
 SELECT
@@ -60,12 +57,11 @@ JOIN BookInfo AS bi
     ON b.ISBN = bi.ISBN;
 
 
-------------------------------------------------------------
--- Example query on View 2:
--- Show all books borrowed by a CERTAIN MEMBER.
--- Replace 1 with an actual memberID from your data.
-------------------------------------------------------------
-
+/*
+ Example query on View 2:
+ Show all books borrowed by a CERTAIN MEMBER.
+ Replace 1 with an actual memberID from your data.
+*/
 SELECT
     rentID,
     memberID,
@@ -77,13 +73,12 @@ SELECT
 FROM MemberBorrowHistory
 WHERE memberID = 1;
 
-
-------------------------------------------------------------
--- Test updatability: try inserting into each view.
--- These statements are EXPECTED to FAIL in a standards-compliant
--- implementation, because both views are defined over joins of
--- multiple base tables.
-------------------------------------------------------------
+/*
+ Test updatability: try inserting into each view.
+ These statements are EXPECTED to FAIL in a standards-compliant
+ implementation, because both views are defined over joins of
+ multiple base tables.
+*/
 INSERT INTO AuthorBooks (bookID, ISBN, Title, Author, availableCopies, adminID)
 VALUES (4002, '979999999999', 'New Test Title', 'New Test Author', 5, 1);
 
